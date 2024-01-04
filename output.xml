@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.8 on win32)" generated="20240104 11:59:17.718" rpa="false" schemaversion="4">
+<suite id="s1" name="API" source="D:\Test\AutomationTest\API\API.robot">
+<test id="s1-t1" name="Get User from page 3" line="8">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>ReqRes</arg>
+<arg>${REQRES_BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240104 11:59:17.841" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240104 11:59:17.841" endtime="20240104 11:59:17.841"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>On Session</arg>
+<arg>ReqRes</arg>
+<arg>api/users?page=3</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240104 11:59:17.842" level="FAIL">TypeError: Session.request() got an unexpected keyword argument 'api/users?page'</msg>
+<status status="FAIL" starttime="20240104 11:59:17.842" endtime="20240104 11:59:17.843"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp.status_code} 200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20240104 11:59:17.843" endtime="20240104 11:59:17.843"/>
+</kw>
+<status status="FAIL" starttime="20240104 11:59:17.840" endtime="20240104 11:59:17.844">TypeError: Session.request() got an unexpected keyword argument 'api/users?page'</status>
+</test>
+<test id="s1-t2" name="Get Single User with ID 10" line="13">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>ReqRes</arg>
+<arg>${REQRES_BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240104 11:59:17.846" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240104 11:59:17.845" endtime="20240104 11:59:17.846"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>On Session</arg>
+<arg>ReqRes</arg>
+<arg>api/users/10</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240104 11:59:17.849" level="FAIL">MissingSchema: Invalid URL 'On Session': No scheme supplied. Perhaps you meant https://On Session?</msg>
+<status status="FAIL" starttime="20240104 11:59:17.847" endtime="20240104 11:59:17.850"/>
+</kw>
+<kw name="Should Be Equal As Strings ${resp.status_code}">
+<arg>200</arg>
+<status status="NOT RUN" starttime="20240104 11:59:17.852" endtime="20240104 11:59:17.852"/>
+</kw>
+<status status="FAIL" starttime="20240104 11:59:17.845" endtime="20240104 11:59:17.853">MissingSchema: Invalid URL 'On Session': No scheme supplied. Perhaps you meant https://On Session?</status>
+</test>
+<test id="s1-t3" name="Register Successful" line="18">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>ReqRes</arg>
+<arg>${REQRES_BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240104 11:59:17.855" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240104 11:59:17.854" endtime="20240104 11:59:17.855"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{user}</var>
+<arg>name=John Doe</arg>
+<arg>job=Tester</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240104 11:59:17.856" level="INFO">&amp;{user} = { name=John Doe | job=Tester }</msg>
+<status status="PASS" starttime="20240104 11:59:17.856" endtime="20240104 11:59:17.856"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>On Session</arg>
+<arg>ReqRes</arg>
+<arg>api/register data=${user}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240104 11:59:17.857" level="FAIL">TypeError: Session.request() got an unexpected keyword argument 'api/register data'</msg>
+<status status="FAIL" starttime="20240104 11:59:17.857" endtime="20240104 11:59:17.857"/>
+</kw>
+<kw name="Should Be Equal As Strings ${resp.status_code}">
+<arg>200</arg>
+<status status="NOT RUN" starttime="20240104 11:59:17.859" endtime="20240104 11:59:17.859"/>
+</kw>
+<status status="FAIL" starttime="20240104 11:59:17.854" endtime="20240104 11:59:17.860">TypeError: Session.request() got an unexpected keyword argument 'api/register data'</status>
+</test>
+<test id="s1-t4" name="Register Failed" line="24">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>ReqRes</arg>
+<arg>${REQRES_BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240104 11:59:17.862" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240104 11:59:17.861" endtime="20240104 11:59:17.862"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{user}</var>
+<arg>name=</arg>
+<arg>job=</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240104 11:59:17.863" level="INFO">&amp;{user} = { name= | job= }</msg>
+<status status="PASS" starttime="20240104 11:59:17.862" endtime="20240104 11:59:17.863"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>On Session</arg>
+<arg>ReqRes</arg>
+<arg>api/register</arg>
+<arg>data=${user}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20240104 11:59:17.864" level="FAIL">TypeError: RequestsKeywords.session_less_post() got multiple values for argument 'data'</msg>
+<status status="FAIL" starttime="20240104 11:59:17.863" endtime="20240104 11:59:17.864"/>
+</kw>
+<kw name="Should Be Equal As Strings ${resp.status_code}">
+<arg>400</arg>
+<status status="NOT RUN" starttime="20240104 11:59:17.866" endtime="20240104 11:59:17.866"/>
+</kw>
+<status status="FAIL" starttime="20240104 11:59:17.861" endtime="20240104 11:59:17.867">TypeError: RequestsKeywords.session_less_post() got multiple values for argument 'data'</status>
+</test>
+<status status="FAIL" starttime="20240104 11:59:17.721" endtime="20240104 11:59:17.869"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="API">API</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
