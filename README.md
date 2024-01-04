@@ -20,7 +20,7 @@
    - Payload: Provide valid user registration data in the request body.
    - Expected Result: A successful response indicating that the registration was successful.
    ![Gambar Scenario 3](API/Images/Scenario3.jpg)
-   
+
   
 4. #### Register failed.
    - Endpoint: POST /api/register
@@ -28,3 +28,17 @@
    - Payload: Provide invalid or incomplete user registration data in the request body.
    - Expected Result: An error response indicating that the registration failed, possibly with details on the validation errors.
    ![Gambar Scenario 4](API/Images/Scenario4.jpg)
+
+
+# Automation Assessment with Robot Framework or Cucumber
+Open this page https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Please create the automation test for these scenario:
+1. Login and logout
+2. Apply leave
+3. Cancel leave
+4. Update personal details
+5. Update contact details
+6. Add job title
+
+### To see the results of the Automation Code or Script, you can use the following [Visit the Link or Folder](/TestCases/).
+.
